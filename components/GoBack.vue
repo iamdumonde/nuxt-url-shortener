@@ -1,0 +1,10 @@
+<template>
+  <a href="#" class="text-sm mb-5 italic flex items-center gap-3 no-underline" @click.prevent="useRouter().back()">👌
+    Retour</a>
+</template>
+
+<script lang="ts" setup>
+
+</script>
+
+<style></style>
