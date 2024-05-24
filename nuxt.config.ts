@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
   runtimeConfig: {
     public: {
-      appUrl: process.env.APP_URL || "http://localhost:3000"
+      appUrl: process.env.APP_URL || "http://localhost:3000",
+      apiUrl: process.env.API_URL || "http://localhost:8000",
     }
   },
   tailwindcss: {

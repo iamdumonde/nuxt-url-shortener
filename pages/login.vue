@@ -1,7 +1,7 @@
 <template>
   <div class="prose">
     <h1>Connexion</h1>
-    <form>
+    <form @submit.prevent="">
       <label for="">
         Email
         <input type="email">
@@ -25,6 +25,17 @@
 definePageMeta({
   layout: 'centered',
 });
+
+const form = ref({
+  name: "",
+  email: "",
+  password: "",
+});
+
+async function register(){
+
+
+}
 
 </script>
 
