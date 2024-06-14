@@ -86,6 +86,9 @@ const links = [
 ];
 
 const search = ref("");
+definePageMeta({
+  middleware: ['auth']
+})
 </script>
 
 <style scoped>

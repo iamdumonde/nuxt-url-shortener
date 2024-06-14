@@ -8,9 +8,8 @@
       <div class="space-x-3">
         <NuxtLink to="/me">Profile</NuxtLink>
         <NuxtLink to="/links">Liens</NuxtLink>
-        <NuxtLink to="">
-          <!-- <Icon name="mdi:logout" /> -->
-          Logout !
+        <NuxtLink to="/logout">
+          <Icon name="mdi:logout" />
         </NuxtLink>
       </div>
     </nav>

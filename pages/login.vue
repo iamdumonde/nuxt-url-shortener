@@ -1,44 +1,57 @@
 <template>
   <div class="prose">
     <h1>Connexion</h1>
-    <form @submit.prevent="">
+    <form @submit.prevent="login(form)">
+
       <label for="">
         Email
-        <input type="email">
+        <input type="email" v-model="form.email">
       </label>
       <label for="">
         Mot de passe
-        <input type="password">
+        <input type="password" v-model="form.password">
       </label>
 
-      <button type="button" class="btn">Se connecter</button>
+      <button type="submit" class="btn">Se connecter</button>
     </form>
 
     <p>Pas de compte ?
       <NuxtLink to="/register" class="underline text-lime-600">Inscrivez-vous !</NuxtLink>
     </p>
-    
+
   </div>
 </template>
 
 <script lang="ts" setup>
+import axios from "axios";
+
 definePageMeta({
-  layout: 'centered',
+  layout: "centered",
+  middleware: ["guest"],
 });
 
-const form = ref({
-  name: "",
+
+interface LoginPayload {
+  email: string;
+  password: string;
+}
+
+const form = ref<LoginPayload>({
   email: "",
   password: "",
 });
 
-async function register(){
-
+async function login(payload: LoginPayload) {
+  const res = await axios.post('/login', payload)
+  await axios.post('/login', {
+    email: payload.email,
+    password: payload.password,
+  })
+  useRouter().push("/me");
+  console.log(res)
 
 }
 
 </script>
 
-<style>
-
-</style>
+<style></style>
