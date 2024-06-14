@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { AxiosError, type AxiosResponse } from "axios"
 
 export default defineNuxtPlugin(async (nuxtApp) => {
     //configuration de base pour que les requêtes soient acceptées par le backend
@@ -14,4 +14,19 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     await axios.get("/sanctum/csrf-cookie", {
         baseURL: config.public.apiUrl,
     });
+
+
+    //intercepteur de réponse
+    axios.interceptors.response.use(
+        (res) => res,
+        (error: AxiosError) => {
+            if ([401, 419].includes((error.response as AxiosResponse).status)){
+                const {logout} = useAuth();
+                logout();
+            } else {
+                return Promise.reject(error);
+            }
+        },
+    
+    );
 })
