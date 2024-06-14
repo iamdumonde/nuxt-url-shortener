@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts" setup>
-import axios from "axios";
 
 definePageMeta({
   layout: "centered",
@@ -41,16 +40,18 @@ const form = ref<LoginPayload>({
   password: "",
 });
 
-async function login(payload: LoginPayload) {
-  const res = await axios.post('/login', payload)
-  await axios.post('/login', {
-    email: payload.email,
-    password: payload.password,
-  })
-  useRouter().push("/me");
-  console.log(res)
+// async function login(payload: LoginPayload) {
+//   const res = await axios.post('/login', payload)
+//   await axios.post('/login', {
+//     email: payload.email,
+//     password: payload.password,
+//   })
+//   useRouter().push("/me");
+//   console.log(res)
 
-}
+// }
+
+const {login} = useAuth();
 
 </script>
 

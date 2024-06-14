@@ -5,18 +5,19 @@
 </template>
 
 <script lang="ts" setup>
-import axios from "axios";
 
 definePageMeta({
   layout: 'simple'
 })
 
+const { logout } = useAuth();
+logout();
 
 // const route = useRouter()
-onMounted(async() => {
-  await axios.post('/logout');
-  useRouter().replace('/login');
-});
+// onMounted(async() => {
+//   await axios.post('/logout');
+//   useRouter().replace('/login');
+// });
 
 </script>
 
