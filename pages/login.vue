@@ -40,17 +40,6 @@ const form = ref<LoginPayload>({
   password: "",
 });
 
-// async function login(payload: LoginPayload) {
-//   const res = await axios.post('/login', payload)
-//   await axios.post('/login', {
-//     email: payload.email,
-//     password: payload.password,
-//   })
-//   useRouter().push("/me");
-//   console.log(res)
-
-// }
-
 const {login} = useAuth();
 
 </script>
