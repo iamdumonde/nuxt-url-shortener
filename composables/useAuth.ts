@@ -15,6 +15,7 @@ export const useAuth = () => {
       const user = res.data as User;
       return user;
     } catch (e: unknown) {
+      console.error('user authentifié')
       return null;
     }
   }
