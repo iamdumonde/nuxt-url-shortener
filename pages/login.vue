@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Axios } from 'axios';
 import type { LoginPayload } from '~/@types';
 import type { FormKitNode } from "@formkit/core";
 
@@ -24,11 +23,9 @@ definePageMeta({
   middleware: ["guest"],
 });
 
-
 const { login } = useAuth();
 
-
-async function handleLogin(payload: LoginPayload) {
+async function handleLogin(payload: LoginPayload, node?: FormKitNode) {
   try {
     await login(payload);
   } catch (e: unknown) {
