@@ -2,19 +2,12 @@
   <div class="mx-auto max-w-md prose">
     <h1 class="">Modifier le lien</h1>
     <GoBack/>
-    <form action="">
-      <label>
-        <div>Lien court</div>
-        <input type="text">
-      </label>
-      <label>
-        <div>Lien complet</div>
-        <input type="text">
-      </label>
-      <button>
-        Modifier le lien
-      </button>
-    </form>
+
+    <FormKit type="form" submit-label="Modifier le lien">
+      <FormKit type="text" name="short_link" label="Lien Court"/>
+      <FormKit type="url" name="full_link" label="Lien Complet"/>
+    </FormKit>
+
   </div>
 </template>
 

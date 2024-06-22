@@ -3,11 +3,9 @@
     <h1>Créer un nouveau lien</h1>
     <GoBack>Revenir en arrière</GoBack>
 
-    <form>
-      <label for="link">Lien complet</label>
-      <input id="link" type="text" name="full_link" placeholder="Entrez le lien complet..." autofocus />
-      <button class="btn">Créer le lien</button>
-    </form>
+    <FormKit type="form" submit-label="Créer le lien">
+      <FormKit type="url" name="full_link" label="Lien complet" validation="required"/>
+    </FormKit>
   </div>
 </template>
 

@@ -28,7 +28,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         if (!["/login", "/register"].includes(route.path)) {
           if (isInitialCheck) {
             //On ne fait rien si c'est la première authentification
-            console.log("Initial authentication");
+            console.warn("Initial authentication failed");
             isInitialCheck = false;
           } else {
             logout();
